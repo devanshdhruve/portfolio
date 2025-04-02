@@ -38,14 +38,14 @@ export default function Contact() {
 
     try {
       await emailjs.send(
-        import.meta.env.VITE_EMAILJS_SERVICE_ID, // From .env
-        import.meta.env.VITE_EMAILJS_TEMPLATE_ID, // From .env
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
         {
           from_name: formData.name,
           from_email: formData.email,
           message: formData.message,
         },
-        import.meta.env.VITE_EMAILJS_PUBLIC_KEY // From .env
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
       );
       setSubmitSuccess(true);
     } catch (error) {
@@ -99,7 +99,7 @@ export default function Contact() {
   ];
 
   return (
-    <div className="min-h-screen py-12 md:py-20 bg-black flex justify-center items-center">
+    <div className="min-h-screen w-full bg-black">
       {/* Copy Notification */}
       {copied && (
         <motion.div
@@ -113,12 +113,11 @@ export default function Contact() {
         </motion.div>
       )}
 
-      <div className="container max-w-screen-xl px-4 sm:px-6 lg:px-8">
+      <div className="w-full max-w-7xl mx-auto px-4 py-12 md:py-20">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="max-w-6xl mx-auto"
         >
           <div className="text-center mb-16">
             <motion.h1
@@ -136,19 +135,20 @@ export default function Contact() {
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
-              className="text-lg text-gray-300 max-w-2xl mx-auto"
+              className="text-lg text-gray-300 max-w-3xl mx-auto"
             >
               Have a project in mind or want to discuss opportunities? I'd love
               to hear from you.
             </motion.p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 w-full">
             {/* Contact Methods Card */}
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.3 }}
+              className="w-full"
             >
               <Card className="border border-gray-800 bg-black w-full h-full shadow-lg shadow-purple-500/10">
                 <CardHeader className="px-8 pt-8 pb-6">
@@ -166,9 +166,9 @@ export default function Contact() {
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}
                       onClick={method.action || undefined}
-                      className={`flex items-center space-x-5 p-5 bg-gray-900 rounded-xl hover:bg-gray-800 transition-all ${
+                      className={`flex items-center space-x-5 p-5 bg-gray-800 rounded-xl hover:bg-gray-700 transition-all ${
                         method.action ? "cursor-pointer" : "cursor-default"
-                      } border border-gray-800`}
+                      } border border-gray-700`}
                     >
                       <div
                         className={`p-3 ${method.bg} rounded-xl ${method.color}`}
@@ -187,13 +187,14 @@ export default function Contact() {
               </Card>
             </motion.div>
 
-            {/* Contact Form Card - Added back the missing form card */}
+            {/* Contact Form Card */}
             <motion.div
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.4 }}
+              className="w-full"
             >
-              <Card className="border border-gray-800 bg-black w-full shadow-lg shadow-blue-500/10">
+              <Card className="border border-gray-800 bg-black w-full shadow-lg shadow-purple-500/10">
                 <CardHeader className="px-8 pt-8 pb-6">
                   <CardTitle className="text-2xl font-bold text-white">
                     Send Me a Message
@@ -219,7 +220,7 @@ export default function Contact() {
                         value={formData.name}
                         onChange={handleChange}
                         required
-                        className="w-full bg-gray-900 border-gray-800 text-white focus:border-purple-500 focus:ring-purple-500 h-12"
+                        className="w-full bg-gray-800 border-gray-700 text-white focus:border-purple-500 focus:ring-purple-500 h-12"
                       />
                     </div>
 
@@ -238,7 +239,7 @@ export default function Contact() {
                         value={formData.email}
                         onChange={handleChange}
                         required
-                        className="w-full bg-gray-900 border-gray-800 text-white focus:border-purple-500 focus:ring-purple-500 h-12"
+                        className="w-full bg-gray-800 border-gray-700 text-white focus:border-purple-500 focus:ring-purple-500 h-12"
                       />
                     </div>
 
@@ -256,7 +257,7 @@ export default function Contact() {
                         value={formData.message}
                         onChange={handleChange}
                         required
-                        className="w-full min-h-[150px] bg-gray-900 border-gray-800 text-white focus:border-purple-500 focus:ring-purple-500"
+                        className="w-full min-h-[150px] bg-gray-800 border-gray-700 text-white focus:border-purple-500 focus:ring-purple-500"
                       />
                     </div>
 
