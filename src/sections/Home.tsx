@@ -4,9 +4,6 @@ import "./IconOrbit.css";
 const Home = () => {
   return (
     <section className="relative w-full min-h-[90vh] bg-black text-white flex items-center justify-center px-4 sm:px-8 md:px-16 py-8 overflow-hidden">
-      {/* Stars background */}
-      <div className="stars" />
-
       {/* Main content container */}
       <div className="w-full max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 md:gap-12 z-10">
         {/* Left content - Text section */}

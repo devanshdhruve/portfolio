@@ -63,8 +63,6 @@ const skills = {
 const About = () => {
   return (
     <div className="relative w-full min-h-[90vh] bg-black text-white flex items-center justify-center px-4 sm:px-8 md:px-16 py-16 overflow-hidden">
-      <div className="stars" />
-
       <div className="relative z-10 max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 animate-fade-in">
         {/* About Text */}
         <div>

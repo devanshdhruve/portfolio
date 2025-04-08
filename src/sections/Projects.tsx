@@ -1,37 +1,48 @@
-import { useRef, useEffect } from 'react';
-import { motion, useAnimation, useInView } from 'framer-motion';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { useRef, useEffect } from "react";
+import { motion, useAnimation, useInView } from "framer-motion";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 
 const projects = [
   {
-    title: 'E-Commerce Platform',
-    description: 'A full-stack web application built with React and Node.js',
-    image: 'https://images.unsplash.com/photo-1557821552-17105176677c?auto=format&fit=crop&q=80&w=800',
-    tags: ['React', 'Node.js', 'PostgreSQL', 'Stripe'],
-    link: '#',
+    title: "E-Commerce Platform",
+    description: "A full-stack web application built with React and Node.js",
+    image:
+      "https://images.unsplash.com/photo-1557821552-17105176677c?auto=format&fit=crop&q=80&w=800",
+    tags: ["React", "Node.js", "PostgreSQL", "Stripe"],
+    link: "#",
   },
   {
-    title: 'DeFi Dashboard',
-    description: 'Decentralized finance dashboard using Ethereum smart contracts',
-    image: 'https://images.unsplash.com/photo-1639762681485-074b7f938ba0?auto=format&fit=crop&q=80&w=800',
-    tags: ['Solidity', 'Web3.js', 'React', 'TypeScript'],
-    link: '#',
+    title: "DeFi Dashboard",
+    description:
+      "Decentralized finance dashboard using Ethereum smart contracts",
+    image:
+      "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?auto=format&fit=crop&q=80&w=800",
+    tags: ["Solidity", "Web3.js", "React", "TypeScript"],
+    link: "#",
   },
   {
-    title: 'Social Media App',
-    description: 'Mobile-first responsive social networking platform',
-    image: 'https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&q=80&w=800',
-    tags: ['React Native', 'Firebase', 'TypeScript', 'Redux'],
-    link: '#',
+    title: "Social Media App",
+    description: "Mobile-first responsive social networking platform",
+    image:
+      "https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&q=80&w=800",
+    tags: ["React Native", "Firebase", "TypeScript", "Redux"],
+    link: "#",
   },
   {
-    title: 'AI Image Generator',
-    description: 'Image generation platform using machine learning',
-    image: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800',
-    tags: ['Python', 'TensorFlow', 'React', 'FastAPI'],
-    link: '#',
+    title: "AI Image Generator",
+    description: "Image generation platform using machine learning",
+    image:
+      "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800",
+    tags: ["Python", "TensorFlow", "React", "FastAPI"],
+    link: "#",
   },
 ];
 
@@ -47,16 +58,16 @@ const Projects = () => {
     }
   }, [isInView, controls]);
 
-  const scroll = (direction: 'left' | 'right') => {
+  const scroll = (direction: "left" | "right") => {
     const container = scrollContainerRef.current;
     if (container) {
-      const scrollAmount = direction === 'left' ? -400 : 400;
-      container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+      const scrollAmount = direction === "left" ? -400 : 400;
+      container.scrollBy({ left: scrollAmount, behavior: "smooth" });
     }
   };
 
   return (
-    <div className="min-h-screen py-20" ref={ref}>
+    <div className="min-h-screen bg-black py-20" ref={ref}>
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -64,7 +75,7 @@ const Projects = () => {
           transition={{ duration: 0.5 }}
         >
           <h2 className="text-4xl font-bold mb-8">Featured Projects</h2>
-          
+
           <div className="relative">
             {/* Desktop Navigation Buttons */}
             <div className="hidden md:block">
@@ -72,7 +83,7 @@ const Projects = () => {
                 variant="secondary"
                 size="icon"
                 className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-[#2d2d2d] hover:bg-[#404040]"
-                onClick={() => scroll('left')}
+                onClick={() => scroll("left")}
               >
                 <ChevronLeft className="h-5 w-5" />
               </Button>
@@ -80,7 +91,7 @@ const Projects = () => {
                 variant="secondary"
                 size="icon"
                 className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-[#2d2d2d] hover:bg-[#404040]"
-                onClick={() => scroll('right')}
+                onClick={() => scroll("right")}
               >
                 <ChevronRight className="h-5 w-5" />
               </Button>
@@ -91,8 +102,8 @@ const Projects = () => {
               ref={scrollContainerRef}
               className="flex overflow-x-auto gap-6 pb-8 snap-x snap-mandatory hide-scrollbar"
               style={{
-                scrollbarWidth: 'none',
-                msOverflowStyle: 'none',
+                scrollbarWidth: "none",
+                msOverflowStyle: "none",
               }}
             >
               {projects.map((project, index) => (
@@ -113,7 +124,11 @@ const Projects = () => {
                       />
                       <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                         <Button variant="secondary" asChild>
-                          <a href={project.link} target="_blank" rel="noopener noreferrer">
+                          <a
+                            href={project.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
                             View Project
                           </a>
                         </Button>

@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
+import "./IconOrbit.css";
 import {
   Card,
   CardContent,
@@ -100,6 +101,7 @@ export default function Contact() {
 
   return (
     <div className="min-h-screen w-full bg-black">
+      <div className="stars-contact" />
       {/* Copy Notification */}
       {copied && (
         <motion.div

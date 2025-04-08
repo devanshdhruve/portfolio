@@ -105,3 +105,20 @@
   z-index: 0;
   filter: drop-shadow(0 0 2px white);
 }
+
+.stars-contact {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  background: transparent;
+  background-image: radial-gradient(white 1.2px, transparent 1.2px),
+    radial-gradient(white 1.2px, transparent 1.2px);
+  background-size: 40px 40px;
+  background-position: 0 0, 20px 20px;
+  opacity: 0.2;
+  z-index: 0;
+  filter: drop-shadow(0 0 2px white);
+}
