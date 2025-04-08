@@ -1,8 +1,8 @@
-/* Solar system container with 3D perspective */
+/* Solar system container with 3D perspective - Made larger */
 .solar-system {
   position: relative;
-  width: 650px; /* Increased from 500px */
-  height: 650px;
+  width: 700px; /* Increased from 650px */
+  height: 700px;
   perspective: 1000px;
 }
 
@@ -17,63 +17,67 @@
   transform-style: preserve-3d;
 }
 
-/* Center sun */
+/* Center sun - made larger */
 .sun {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   filter: drop-shadow(0 0 12px rgba(0, 255, 255, 0.6));
+  width: 100px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-/* Planets (icons) */
+/* Planets (icons) - made larger */
 .planet {
   position: absolute;
   top: 0;
   left: 50%;
   transform: translate(-50%, -50%);
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-/* Larger orbit sizes + longer animations */
+/* Adjusted orbit sizes to be larger but still compact */
 .orbit1 {
-  width: 180px;
-  height: 180px;
+  width: 200px;
+  height: 200px;
   animation: rotate3d 10s linear infinite;
 }
 
 .orbit2 {
-  width: 240px;
-  height: 240px;
+  width: 280px;
+  height: 280px;
   animation: rotate3d 12s linear infinite reverse;
 }
 
 .orbit3 {
-  width: 300px;
-  height: 300px;
+  width: 360px;
+  height: 360px;
   animation: rotate3d 14s linear infinite;
 }
 
 .orbit4 {
-  width: 360px;
-  height: 360px;
+  width: 440px;
+  height: 440px;
   animation: rotate3d 16s linear infinite reverse;
 }
 
-.orbit5 {
-  width: 420px;
-  height: 420px;
-  animation: rotate3d 18s linear infinite;
-}
-
 .orbit6 {
-  width: 480px;
-  height: 480px;
+  width: 520px;
+  height: 520px;
   animation: rotate3d 20s linear infinite reverse;
 }
 
 .orbit7 {
-  width: 540px;
-  height: 540px;
+  width: 610px;
+  height: 610px;
   animation: rotate3d 22s linear infinite;
 }
 

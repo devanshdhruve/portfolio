@@ -1,81 +1,116 @@
-import { motion } from 'framer-motion';
+import React from "react";
+import "./About.css";
+import {
+  SiReact,
+  SiTypescript,
+  SiTailwindcss,
+  SiNextdotjs,
+  SiVuedotjs,
+  SiNodedotjs,
+  SiExpress,
+  SiPython,
+  SiSolidity,
+  SiEthers,
+  SiJavascript,
+  SiHtml5,
+  SiCss3,
+  SiC,
+  SiCplusplus,
+  SiGit,
+  SiMongodb,
+  SiMysql,
+} from "react-icons/si";
+import { FaHardHat, FaTools } from "react-icons/fa";
 
-const skills = {
-  frontend: ['React', 'TypeScript', 'Tailwind CSS', 'Next.js', 'Vue.js'],
-  backend: ['Node.js', 'Express', 'Python', 'Django', 'PostgreSQL'],
-  blockchain: ['Solidity', 'Web3.js', 'Ethers.js', 'Hardhat', 'Truffle'],
-  other: ['Git', 'Docker', 'AWS', 'CI/CD', 'Testing'],
+// Icon mapping for skills
+const iconMap: Record<string, JSX.Element> = {
+  React: <SiReact />,
+  TypeScript: <SiTypescript />,
+  "Tailwind CSS": <SiTailwindcss />,
+  "Next.js": <SiNextdotjs />,
+  "Vue.js": <SiVuedotjs />,
+  "Node.js": <SiNodedotjs />,
+  Express: <SiExpress />,
+  Python: <SiPython />,
+  HTML: <SiHtml5 />,
+  CSS: <SiCss3 />,
+  Solidity: <SiSolidity />,
+  "Ethers.js": <SiEthers />,
+  JavaScript: <SiJavascript />,
+  C: <SiC />,
+  "C++": <SiCplusplus />,
+  Git: <SiGit />,
+  MongoDB: <SiMongodb />,
+  MySQL: <SiMysql />,
+  Hardhat: <FaHardHat />,
 };
 
-const SkillCategory = ({ title, items }: { title: string; items: string[] }) => (
-  <motion.div
-    initial={{ opacity: 0, y: 20 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    viewport={{ once: true }}
-    transition={{ duration: 0.5 }}
-    className="mb-8"
-  >
-    <h3 className="text-2xl font-bold mb-4 text-white">{title}</h3>
-    <div className="flex flex-wrap gap-3">
-      {items.map((skill) => (
-        <span
-          key={skill}
-          className="px-4 py-2 bg-[#2d2d2d] text-white/80 rounded-full text-sm hover:bg-[#404040] transition-colors"
-        >
-          {skill}
-        </span>
-      ))}
-    </div>
-  </motion.div>
-);
+const skills = {
+  Frontend: [
+    "HTML",
+    "CSS",
+    "JavaScript",
+    "React",
+    "Tailwind CSS",
+    "TypeScript",
+    "Next.js",
+  ],
+  Backend: ["Node.js", "Express", "MongoDB", "MySQL"],
+  Blockchain: ["Solidity", "Web3.js", "Ethers.js", "Hardhat"],
+  Other: ["C", "C++", "Python"],
+};
 
 const About = () => {
   return (
-    <div className="min-h-screen py-20">
-      <div className="container mx-auto px-4">
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-        >
-          <h2 className="text-4xl font-bold mb-8">About Me</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-            <div>
-              <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.2, duration: 0.5 }}
-                className="text-lg text-white/80 mb-6"
-              >
-                I'm a passionate full-stack developer with expertise in modern web technologies
-                and blockchain development. With a strong foundation in both front-end and
-                back-end development, I create scalable and user-friendly applications.
-              </motion.p>
-              <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.4, duration: 0.5 }}
-                className="text-lg text-white/80"
-              >
-                My journey in blockchain technology has equipped me with deep knowledge of
-                smart contract development and decentralized applications. I'm always
-                excited to take on new challenges and contribute to innovative projects.
-              </motion.p>
-            </div>
-            <div>
-              <h3 className="text-3xl font-bold mb-6">My Skills</h3>
-              <div className="space-y-8">
-                <SkillCategory title="Frontend" items={skills.frontend} />
-                <SkillCategory title="Backend" items={skills.backend} />
-                <SkillCategory title="Blockchain" items={skills.blockchain} />
-                <SkillCategory title="Other" items={skills.other} />
+    <div className="relative w-full min-h-[90vh] bg-black text-white flex items-center justify-center px-4 sm:px-8 md:px-16 py-16 overflow-hidden">
+      <div className="stars" />
+
+      <div className="relative z-10 max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 animate-fade-in">
+        {/* About Text */}
+        <div>
+          <h1 className="text-5xl font-extrabold mb-6 text-white tracking-tight">
+            About{" "}
+            <span className="bg-gradient-to-r from-blue-500 to-purple-500 text-transparent bg-clip-text">
+              Me
+            </span>
+          </h1>
+          <p className="text-gray-300 mb-5 text-lg leading-relaxed">
+            I'm a passionate full-stack developer with expertise in modern web
+            technologies and blockchain development. With a strong foundation in
+            both front-end and back-end, I build scalable, user-friendly apps.
+          </p>
+          <p className="text-gray-300 text-lg leading-relaxed">
+            My journey in blockchain technology has equipped me with deep
+            knowledge of smart contract development and dApps. I love taking on
+            new challenges and contributing to innovative projects.
+          </p>
+        </div>
+
+        {/* Skills Section */}
+        <div>
+          <h2 className="text-3xl font-bold text-white mb-6">My Skills</h2>
+
+          {Object.entries(skills).map(([section, items]) => (
+            <div className="mb-6" key={section}>
+              <h3 className="text-xl font-semibold text-white mb-2">
+                {section}
+              </h3>
+              <div className="flex flex-wrap gap-2 mt-2">
+                {items.map((skill) => (
+                  <span
+                    key={skill}
+                    className="flex items-center gap-2 bg-white text-black px-4 py-1 rounded-full text-sm font-medium shadow-md transition-transform transform hover:scale-105 hover:bg-[#00FFF0] hover:text-black"
+                  >
+                    {iconMap[skill] && (
+                      <span className="text-lg">{iconMap[skill]}</span>
+                    )}
+                    {skill}
+                  </span>
+                ))}
               </div>
             </div>
-          </div>
-        </motion.div>
+          ))}
+        </div>
       </div>
     </div>
   );
