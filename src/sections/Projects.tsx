@@ -1,4 +1,4 @@
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useState } from "react";
 import { motion, useAnimation, useInView } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -9,6 +9,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { cn } from "@/lib/utils"; // Assuming this is your Tailwind cn helper
 
 const projects = [
   {
@@ -47,10 +48,13 @@ const projects = [
 ];
 
 const Projects = () => {
-  const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const scrollerRef = useRef<HTMLDivElement>(null);
   const controls = useAnimation();
   const ref = useRef(null);
   const isInView = useInView(ref);
+
+  const [start, setStart] = useState(false);
 
   useEffect(() => {
     if (isInView) {
@@ -58,13 +62,23 @@ const Projects = () => {
     }
   }, [isInView, controls]);
 
-  const scroll = (direction: "left" | "right") => {
-    const container = scrollContainerRef.current;
-    if (container) {
-      const scrollAmount = direction === "left" ? -400 : 400;
-      container.scrollBy({ left: scrollAmount, behavior: "smooth" });
+  useEffect(() => {
+    if (scrollerRef.current && containerRef.current) {
+      const scrollerContent = Array.from(scrollerRef.current.children);
+
+      scrollerContent.forEach((item) => {
+        const duplicatedItem = item.cloneNode(true);
+        scrollerRef.current?.appendChild(duplicatedItem);
+      });
+
+      containerRef.current.style.setProperty(
+        "--animation-direction",
+        "forwards"
+      );
+      containerRef.current.style.setProperty("--animation-duration", "100s"); // Normal speed
+      setStart(true);
     }
-  };
+  }, []);
 
   return (
     <div className="min-h-screen bg-black py-20" ref={ref}>
@@ -74,47 +88,32 @@ const Projects = () => {
           animate={controls}
           transition={{ duration: 0.5 }}
         >
-          <h2 className="text-4xl font-bold mb-8">Featured Projects</h2>
+          <h2 className="text-4xl font-bold mb-8 text-white">
+            Featured{" "}
+            <span className="bg-gradient-to-r from-blue-500 to-purple-500 text-transparent bg-clip-text">
+              Projects
+            </span>
+          </h2>
 
-          <div className="relative">
-            {/* Desktop Navigation Buttons */}
-            <div className="hidden md:block">
-              <Button
-                variant="secondary"
-                size="icon"
-                className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-[#2d2d2d] hover:bg-[#404040]"
-                onClick={() => scroll("left")}
-              >
-                <ChevronLeft className="h-5 w-5" />
-              </Button>
-              <Button
-                variant="secondary"
-                size="icon"
-                className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-[#2d2d2d] hover:bg-[#404040]"
-                onClick={() => scroll("right")}
-              >
-                <ChevronRight className="h-5 w-5" />
-              </Button>
-            </div>
-
-            {/* Project Cards Container */}
+          {/* Infinite Scrolling Container */}
+          <div
+            ref={containerRef}
+            className={cn("relative z-20 max-w-full overflow-hidden")}
+          >
             <div
-              ref={scrollContainerRef}
-              className="flex overflow-x-auto gap-6 pb-8 snap-x snap-mandatory hide-scrollbar"
-              style={{
-                scrollbarWidth: "none",
-                msOverflowStyle: "none",
-              }}
+              ref={scrollerRef}
+              className={cn(
+                "flex w-max min-w-full shrink-0 flex-nowrap gap-6 py-4",
+                start && "animate-scroll",
+                "hover:[animation-play-state:paused]"
+              )}
             >
               {projects.map((project, index) => (
-                <motion.div
+                <div
                   key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.1 }}
-                  className="min-w-[300px] md:min-w-[400px] snap-center"
+                  className="relative w-[300px] md:w-[400px] shrink-0 snap-center"
                 >
-                  <Card className="h-full bg-[#2d2d2d] border-[#404040] overflow-hidden group">
+                  <Card className="h-full bg-[#000000] border-[#404040] overflow-hidden group">
                     <div className="relative aspect-video overflow-hidden">
                       <img
                         src={project.image}
@@ -135,8 +134,12 @@ const Projects = () => {
                       </div>
                     </div>
                     <CardHeader>
-                      <CardTitle className="text-xl">{project.title}</CardTitle>
-                      <CardDescription>{project.description}</CardDescription>
+                      <CardTitle className="text-xl text-white">
+                        {project.title}
+                      </CardTitle>
+                      <CardDescription className="text-white/70">
+                        {project.description}
+                      </CardDescription>
                     </CardHeader>
                     <CardContent>
                       <div className="flex flex-wrap gap-2">
@@ -151,7 +154,7 @@ const Projects = () => {
                       </div>
                     </CardContent>
                   </Card>
-                </motion.div>
+                </div>
               ))}
             </div>
           </div>

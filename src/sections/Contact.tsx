@@ -139,7 +139,7 @@ export default function Contact() {
               transition={{ delay: 0.2 }}
               className="text-lg text-gray-300 max-w-3xl mx-auto"
             >
-              Have a project in mind or want to discuss opportunities? I'd love
+              Have a project in mind or want to discuss something? I'd love
               to hear from you.
             </motion.p>
           </div>
