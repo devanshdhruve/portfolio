@@ -13,37 +13,40 @@ import { cn } from "@/lib/utils"; // Assuming this is your Tailwind cn helper
 
 const projects = [
   {
-    title: "E-Commerce Platform",
-    description: "A full-stack web application built with React and Node.js",
-    image:
-      "https://images.unsplash.com/photo-1557821552-17105176677c?auto=format&fit=crop&q=80&w=800",
-    tags: ["React", "Node.js", "PostgreSQL", "Stripe"],
-    link: "#",
-  },
-  {
-    title: "DeFi Dashboard",
+    title: "Music Nft Platform",
     description:
-      "Decentralized finance dashboard using Ethereum smart contracts",
-    image:
-      "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?auto=format&fit=crop&q=80&w=800",
-    tags: ["Solidity", "Web3.js", "React", "TypeScript"],
-    link: "#",
+      "A decentralized platform for minting and trading limited edition music NFTs using ERC-1155 on Optimism with IPFS storage via Pinata",
+    image: "https://i.postimg.cc/0NwS34NX/image.png",
+    tags: ["React", "Solidity", "Pinata IPFS", "Optimism"],
+    link: "https://music-nft-ipd.vercel.app/",
+    github: "https://github.com/devanshdhruve/music-nft-ipd",
   },
   {
-    title: "Social Media App",
-    description: "Mobile-first responsive social networking platform",
-    image:
-      "https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&q=80&w=800",
-    tags: ["React Native", "Firebase", "TypeScript", "Redux"],
-    link: "#",
+    title: "PrepPal - AI Mock Interview",
+    description:
+      "An AI-powered interview preparation tool using Vapi AI, Gemini AI, and Firebase for personalized mock interviews.",
+    image: "https://i.postimg.cc/GmSP6Yxt/image.png",
+    tags: ["Next.js", "Firebase", "Vapi Ai", "Gemini AI", "TypeScript"],
+    link: "https://ai-mock-interview-snowy-zeta.vercel.app/",
+    github: "https://github.com/devanshdhruve/ai-mock-interview",
   },
   {
-    title: "AI Image Generator",
-    description: "Image generation platform using machine learning",
-    image:
-      "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800",
-    tags: ["Python", "TensorFlow", "React", "FastAPI"],
-    link: "#",
+    title: "Chat-App",
+    description:
+      "A real-time MERN stack chat application featuring theme switching, online status, and responsive UI with daisyUI.",
+    image: "https://i.postimg.cc/4xGjnDDV/image.png",
+    tags: ["React", "MongoDB", "Node.js", "Express", "daisyUI"],
+    link: "https://mern-stack-chat-app-veag.onrender.com/",
+    github: "https://github.com/devanshdhruve/mern-stack-chat-app",
+  },
+  {
+    title: "Coindox - Token ICO DApp",
+    description:
+      "A decentralized application for launching and participating in token ICOs on the Optimism network via MetaMask.",
+    image: "https://i.postimg.cc/k45mG0tf/image.png",
+    tags: ["React", "Web3.js", "Ethereum", "Metamask"],
+    link: "https://token-ico-dapp.vercel.app/",
+    github: "https://github.com/devanshdhruve/token-ico-dapp",
   },
 ];
 
@@ -121,14 +124,23 @@ const Projects = () => {
                         className="object-cover w-full h-full transform group-hover:scale-110 transition-transform duration-500"
                         loading="lazy"
                       />
-                      <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                      <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-3">
                         <Button variant="secondary" asChild>
                           <a
                             href={project.link}
                             target="_blank"
                             rel="noopener noreferrer"
                           >
-                            View Project
+                            Live Demo
+                          </a>
+                        </Button>
+                        <Button variant="outline" asChild>
+                          <a
+                            href={project.github}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            GitHub
                           </a>
                         </Button>
                       </div>

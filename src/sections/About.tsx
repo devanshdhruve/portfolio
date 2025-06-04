@@ -77,6 +77,13 @@ const About = () => {
             technologies and blockchain development. With a strong foundation in
             both front-end and back-end, I build scalable, user-friendly apps.
           </p>
+          <p className="text-gray-300 mb-5 text-lg leading-relaxed">
+            Currently pursuing my Computer Science Engineering degree at
+            Dwarkadas J. Sanghvi College of Engineering, specializing in IoT,
+            Cybersecurity, and Blockchain Technology. Having just completed my
+            3rd year, I'm combining academic excellence with practical
+            development experience.
+          </p>
           <p className="text-gray-300 text-lg leading-relaxed">
             My journey in blockchain technology has equipped me with deep
             knowledge of smart contract development and dApps. I love taking on

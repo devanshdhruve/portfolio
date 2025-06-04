@@ -46,7 +46,7 @@ export default function FloatingDockDemo() {
       icon: (
         <IconFileText className="h-full w-full text-neutral-300 dark:text-neutral-300" />
       ),
-      href: "https://drive.google.com/file/d/13NTlFjQs_0XW_m5tv3vdxFSQN8kqoqVA/view?usp=sharing",
+      href: "https://drive.google.com/file/d/1hVcSmBpwwkeTbAjfuQmlhRXl0JNLVgaM/view?usp=sharing",
     },
     {
       title: "LinkedIn",
