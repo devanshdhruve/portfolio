@@ -11,7 +11,7 @@ import { Button } from "@/components/ui/button";
 import FloatingDockDemo from "@/components/floating-dock-demo";
 
 function App() {
-  const [isScrolled, setIsScrolled] = useState(false);
+  const [, setIsScrolled] = useState(false);
   const [showScrollTop, setShowScrollTop] = useState(false);
 
   useEffect(() => {

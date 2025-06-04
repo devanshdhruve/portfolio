@@ -1,6 +1,5 @@
 import { useRef, useEffect, useState } from "react";
 import { motion, useAnimation, useInView } from "framer-motion";
-import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   Card,

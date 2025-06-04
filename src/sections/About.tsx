@@ -1,4 +1,3 @@
-import React from "react";
 import "./About.css";
 import {
   SiReact,
@@ -20,7 +19,7 @@ import {
   SiMongodb,
   SiMysql,
 } from "react-icons/si";
-import { FaHardHat, FaTools } from "react-icons/fa";
+import { FaHardHat } from "react-icons/fa";
 
 // Icon mapping for skills
 const iconMap: Record<string, JSX.Element> = {
